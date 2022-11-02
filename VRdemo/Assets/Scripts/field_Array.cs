@@ -9,6 +9,7 @@ using UnityEngine;
 public class field_Array : MonoBehaviour
 {
     //ブロックが配置されていればtrue,そうでなければfalse
+    [SerializeField] 
     bool[,] blocks = new bool[10, 20];
 
     [SerializeField]
@@ -287,6 +288,8 @@ public class field_Array : MonoBehaviour
                 Debug.Log("ここまで到達");
                 go.transform.position += Vector3.down * 0.1f;
 
+                //blocks[x, y] = true;
+
                 //調査8が存在しない？
                 blocks[x, y] = false;
                 blocks[x, y - 1] = true;
@@ -338,10 +341,16 @@ public class field_Array : MonoBehaviour
                 GameObject deleteEffectClone = Instantiate(deleteEffect);
                 deleteEffectClone.transform.position = go.transform.position + Vector3.back * 0.1f;
                 deleteEffectClone.transform.localScale = Vector3.one * 0.1f;
-                blocks[go.GetComponent<Block>().x, h] = false;
+                //blocks[go.GetComponent<Block>().x, h] = false;
                 Destroy(go);
             }
         }
+        for (int i = 0; i < 10; i++)
+        {
+
+            blocks[i, h] = false;
+        }
+        Debug.Log("aaaaaaaaaaa");
     }
     //消した列より高い位置のブロックを落下させる処理
     void DropBlocks(int h)
