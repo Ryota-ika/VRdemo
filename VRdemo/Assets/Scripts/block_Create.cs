@@ -32,7 +32,7 @@ public class block_Create : MonoBehaviour {
         CreateBlockType( );
 
         //ブロックユニットを事前に生成
-        int get_Random1 = 0;/*Random.RandomRange(0, 7);*/
+        int get_Random1 = Random.RandomRange(0, 7);/*Random.RandomRange(0, 7);*/
         shotObj = create_Block(get_Random1, "shot");
         pointObj = create_Block(get_Random1, "point");
         //material=pointObj.GetComponent<Material>();
@@ -52,7 +52,7 @@ public class block_Create : MonoBehaviour {
                 if( OVRInput.GetDown( OVRInput.Button.PrimaryIndexTrigger, contoroller ) ) {
                     // Fire(transform.position,transform.forward, blockObj));
                     Fire( transform.position, transform.forward, shotObj );
-                    int get_Random2 = 0;/*Random.RandomRange(0, 7);*/
+                    int get_Random2 = Random.RandomRange(0, 7);/*Random.RandomRange(0, 7);*/
                     shotObj = create_Block(get_Random2, "shot");
                     pointObj = create_Block(get_Random2, "point");
                     //material = pointObj.GetComponent<Material>( );
@@ -136,61 +136,61 @@ public class block_Create : MonoBehaviour {
 
     //7種類のブロックタイプを生成
     void CreateBlockType( ) {
-        block_Types = new BlockType[ 1 ];
-        //block_Types[ 0 ].shape = new int[ , ]{
-        //        { 0,0,0,0},
-        //        { 0,0,0,0},
-        //        { 1,1,1,1},
-        //        { 0,0,0,0},
-        //    };
-        //block_Types[ 1 ].shape = new int[ , ]{
-        //    { 1,1},
-        //    { 1,1},
-        //};
-        //block_Types[ 2 ].shape = new int[ , ]{
-        //    { 0,1,0},
-        //    { 1,1,1},
-        //    { 0,0,0},
-        //    };
-        //block_Types[ 3 ].shape = new int[ , ]{
-        //        { 0,0,1},
-        //        { 1,1,1},
-        //        { 0,0,0},
-        //    };
-        //block_Types[ 4 ].shape = new int[ , ]{
-        //        { 1,0,0},
-        //        { 1,1,1},
-        //        { 0,0,0},
-        //    };
-        //block_Types[ 5 ].shape = new int[ , ]{
-        //        { 1,1,0},
-        //        { 0,1,1},
-        //        { 0,0,0},
-        //    };
-        //block_Types[ 6 ].shape = new int[ , ]{
-        //        { 0,1,1 },
-        //        { 1,1,0},
-        //        { 0,0,0},
-        //    };
+        block_Types = new BlockType[ 7 ];
         block_Types[0].shape = new int[,]{
-                { 0,0,0,0,0},
-                { 0,0,0,0,0},
-                { 1,1,1,1,1},
-                { 0,0,0,0,0},
-                { 0,0,0,0,0},
+                { 0,0,0,0},
+                { 0,0,0,0},
+                { 1,1,1,1},
+                { 0,0,0,0},
             };
-    //    block_Types[0].shape = new int[,]{
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 1,1,1,1,1,1,1,1,1,1},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //            { 0,0,0,0,0,0,0,0,0,0},
-    //        };
+        block_Types[1].shape = new int[,]{
+            { 1,1},
+            { 1,1},
+        };
+        block_Types[2].shape = new int[,]{
+            { 0,1,0},
+            { 1,1,1},
+            { 0,0,0},
+            };
+        block_Types[3].shape = new int[,]{
+                { 0,0,1},
+                { 1,1,1},
+                { 0,0,0},
+            };
+        block_Types[4].shape = new int[,]{
+                { 1,0,0},
+                { 1,1,1},
+                { 0,0,0},
+            };
+        block_Types[5].shape = new int[,]{
+                { 1,1,0},
+                { 0,1,1},
+                { 0,0,0},
+            };
+        block_Types[6].shape = new int[,]{
+                { 0,1,1 },
+                { 1,1,0},
+                { 0,0,0},
+            };
+        //block_Types[0].shape = new int[,]{
+        //        { 0,0,0,0,0},
+        //        { 0,0,0,0,0},
+        //        { 1,1,1,1,1},
+        //        { 0,0,0,0,0},
+        //        { 0,0,0,0,0},
+        //    };
+        //    block_Types[0].shape = new int[,]{
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 1,1,1,1,1,1,1,1,1,1},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //            { 0,0,0,0,0,0,0,0,0,0},
+        //        };
     }
 
     void RotateBlockUnit( bool isRight ) {
